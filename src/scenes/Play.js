@@ -46,6 +46,13 @@ class Play extends Phaser.Scene {
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         
+        //cursor
+        
+        this.input.on('pointerdown', function (pointer) {
+            this.p1Rocket.isFiring = true;
+            this.p1Rocket.sfxRocket.play();
+        }, this);
+
         // animation config
         this.anims.create({
             key: 'explode',
@@ -67,7 +74,6 @@ class Play extends Phaser.Scene {
                 top: 5,
                 bottom: 5,
             },
-            fixedWidth: 100
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, 'SCORE: ' + this.p1Score, settingConfig);
         // GAME OVER flag
@@ -81,11 +87,16 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+        //update cursor position
+        this.input.on('pointermove', function (pointer) {
+            if(this.p1Rocket.isFiring == false){
+                this.p1Rocket.x = pointer.x;
+            }
+        }, this);
 
         let gameoverConfig = {
             fontFamily: 'Stencil Std, fantasy',
             fontSize: '80px',
- //           backgroundColor: '#FF0000',
             color: '#FFFFFF',
             align: 'right',
             padding: {
