@@ -108,7 +108,7 @@ class Play extends Phaser.Scene {
        if(game.settings.gameTimer <= 0){
             clearInterval(this.clockInterval);
             this.gameover = this.add.tileSprite(0, 0, 640, 480, 'gg').setOrigin(0, 0);
-            this.add.text(game.config.width/2, game.config.height/6, 'GAME OVER', gameoverConfig).setOrigin(0.5);
+            this.add.text(game.config.width/2, game.config.height/6, 'GOOD JOB!', gameoverConfig).setOrigin(0.5);
             gameoverConfig.fontSize = '100px';
             this.add.text(game.config.width/2, game.config.height/2, 'SCORE: ' + this.p1Score, gameoverConfig).setOrigin(0.5);
             gameoverConfig.fontSize = '45px';
