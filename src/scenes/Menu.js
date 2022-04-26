@@ -26,7 +26,7 @@ class Menu extends Phaser.Scene {
         }
         
         // show menu text
-        this.add.text(game.config.width/2, game.config.height/2 - 3 * borderUISize - 3 * borderPadding, 'Rocket Patrol Mods Edit', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2 - 3 * borderUISize - 3 * borderPadding, 'Rocket Patrol Mods', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px';
         //  menuConfig.backgroundColor = '#F3B141';
         menuConfig.color = '#9999FF';
